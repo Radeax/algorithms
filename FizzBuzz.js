@@ -20,6 +20,11 @@ Example - fizzbuzz(15) would return the following string:
 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, and FizzBuzz. */
 
 function FizzBuzz(n) {
+  // Check if positive number
+  if (n < 0 || typeof n != 'number')
+    return null;
+
+  // Check if divisible by 3 AND 5, 3, or 5
   for (let i = 1; i <= n; i++) {
     if (i % 3 == 0 && i % 5 == 0) {
       console.log("FizzBuzz");
