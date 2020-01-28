@@ -54,8 +54,7 @@ function FizzBuzz(n) {
       str += ', and '
     }
   }
-
-  console.log(str);
+  return str;
 }
 
 FizzBuzz(15);
