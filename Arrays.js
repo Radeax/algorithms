@@ -93,7 +93,23 @@ function minToFront(arr) {
     return arr;
 }
 
-const array = [3, 27, -15, 13, 13, 8, 8];
+// -- Reverse -- //
+// Given a numerical array, reverse the order of avlues, in-place. The reversed array should have the
+// same length, with existing elements moved to other indices so that order of elements is reversed.
+// Working 'in-place' means that you cannot use a second array -- move values within the array that you
+// are given. As always, do not use built-in array functions such as splice().
+function reverse(arr) {
+    const arrHalf = parseInt(arr.length / 2);
+    for (let i = 0; i < arrHalf; i++) {
+        const end = arr.length - 1 - i;
+        const temp = arr[end];
+        arr[end] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+
+const array = [3, 27, -15, 13, 13, 8, 8, 5];
 let val = 10;
 
 console.log(array);
@@ -103,5 +119,6 @@ console.log(array);
 // removeAt(array, 2);
 // swapPairs(array);
 // removeDuplicates(array);
-console.log(minToFront(array));
-// console.log(array);
+// minToFront(array);
+reverse(array);
+console.log(array);
