@@ -139,6 +139,21 @@ function rotateArr(arr, shiftBy) {
     }
 }
 
+// -- Filter Range -- //
+// Given arr and values min and max, retain only the array values between min and max.
+// Work in-place: return the array you are given, with values in original order. No built-in array functions.
+function filterRange(arr, min, max) {
+    let idx = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= min && arr[i] <= max) {
+            arr[idx] = arr[i];
+            idx++;
+        }
+    }
+    arr.length = idx;
+    return arr;
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 let val = 10;
 
@@ -151,5 +166,6 @@ console.log(array);
 // removeDuplicates(array);
 // minToFront(array);
 // reverse(array);
-rotateArr(array, -12366233444);
+// rotateArr(array, -12366233444);
+filterRange(array, 3, 12);
 console.log(array);
