@@ -176,6 +176,13 @@ function removeNegatives(arr) {
     return arr;
 }
 
+// -- Second-to-Last -- //
+// Return the second-to-last element of an array.
+// Given [42,true,4,"Kate",7], return "Kate". If array is too short, return null.
+function secondToLast(arr) {
+    return arr.length <= 1 ? null : arr[arr.length - 2];
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
@@ -192,5 +199,6 @@ console.log(array);
 // rotateArr(array, -12366233444);
 // filterRange(array, 3, 12);
 // console.log(arrConcat(array, array2));
-removeNegatives(array);
+// removeNegatives(array);
+console.log(secondToLast(array));
 console.log(array);
