@@ -162,8 +162,22 @@ function arrConcat(arr1, arr2) {
     return [...arr1, ...arr2];
 }
 
+// -- Remove Negatives -- //
+// Implement removeNegatives() that accepts an array, removes negative values, and returns the
+// same array (not a copy), preserving non-negatives' order. As always, do not use built-in array functions.
+function removeNegatives(arr) {
+    let idx = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) continue;
+        arr[idx] = arr[i];
+        idx++;
+    }
+    arr.length = idx;
+    return arr;
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
-const array2 = ['aAa', 'bBb', 'cCc'];
+const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
 
 console.log(array);
@@ -177,5 +191,6 @@ console.log(array);
 // reverse(array);
 // rotateArr(array, -12366233444);
 // filterRange(array, 3, 12);
-console.log(arrConcat(array, array2));
+// console.log(arrConcat(array, array2));
+removeNegatives(array);
 console.log(array);
