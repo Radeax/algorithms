@@ -154,7 +154,16 @@ function filterRange(arr, min, max) {
     return arr;
 }
 
+// -- Concat -- //
+// Replicate JavaScript's concat(). Create a standalone function that accepts two arrays. Return a new
+// array containing the first array's elements, followed by the second array's elements. Do not alter the
+// original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
+function arrConcat(arr1, arr2) {
+    return [...arr1, ...arr2];
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
+const array2 = ['aAa', 'bBb', 'cCc'];
 let val = 10;
 
 console.log(array);
@@ -167,5 +176,6 @@ console.log(array);
 // minToFront(array);
 // reverse(array);
 // rotateArr(array, -12366233444);
-filterRange(array, 3, 12);
+// filterRange(array, 3, 12);
+console.log(arrConcat(array, array2));
 console.log(array);
