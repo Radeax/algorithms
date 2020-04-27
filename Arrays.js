@@ -179,8 +179,37 @@ function removeNegatives(arr) {
 // -- Second-to-Last -- //
 // Return the second-to-last element of an array.
 // Given [42,true,4,"Kate",7], return "Kate". If array is too short, return null.
+// Second: don't use nested loops
 function secondToLast(arr) {
     return arr.length <= 1 ? null : arr[arr.length - 2];
+}
+
+// -- Second-Largest -- //
+// Return the second-largest element of an array.
+// Given [42,1,4,Math.PI,7], return 7. If the array is too short, return null.
+function secondLargest(arr) {
+    if (arr.length <= 1) return null;
+
+    let max, secondLargest;
+
+    // Set the max and secondLargest from first 2 elements
+    if (arr[0] > arr[1]) {
+        max = arr[0];
+        secondLargest = arr[1];
+    }
+    else {
+        max = arr[1];
+        secondLargest = arr[0];
+    }
+
+    for (let i in arr) {
+        if (arr[i] > max) {
+            secondLargest = max;
+            max = arr[i];
+        }
+        else if (arr[i] > secondLargest && arr[i] < max) secondLargest = arr[i];
+    }
+    return secondLargest;
 }
 
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
@@ -200,5 +229,6 @@ console.log(array);
 // filterRange(array, 3, 12);
 // console.log(arrConcat(array, array2));
 // removeNegatives(array);
-console.log(secondToLast(array));
+// console.log(secondToLast(array));
+console.log(secondLargest(array));
 console.log(array);
