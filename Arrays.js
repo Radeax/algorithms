@@ -157,7 +157,7 @@ function filterRange(arr, min, max) {
 // -- Concat -- //
 // Replicate JavaScript's concat(). Create a standalone function that accepts two arrays. Return a new
 // array containing the first array's elements, followed by the second array's elements. Do not alter the
-// original arrays. Ex.: arrConcat( ['a','b'], [1,2] ) should return new array ['a','b',1,2].
+// original arrays. Ex.: arrConcat( ['a', 'b'], [1, 2] ) should return new array ['a', 'b', 1, 2].
 function arrConcat(arr1, arr2) {
     return [...arr1, ...arr2];
 }
@@ -178,7 +178,7 @@ function removeNegatives(arr) {
 
 // -- Second-to-Last -- //
 // Return the second-to-last element of an array.
-// Given [42,true,4,"Kate",7], return "Kate". If array is too short, return null.
+// Given [42, true, 4, "Kate", 7], return "Kate". If array is too short, return null.
 // Second: don't use nested loops
 function secondToLast(arr) {
     return arr.length <= 1 ? null : arr[arr.length - 2];
@@ -186,7 +186,7 @@ function secondToLast(arr) {
 
 // -- Second-Largest -- //
 // Return the second-largest element of an array.
-// Given [42,1,4,Math.PI,7], return 7. If the array is too short, return null.
+// Given [42, 1, 4, Math.PI, 7], return 7. If the array is too short, return null.
 function secondLargest(arr) {
     if (arr.length <= 1) return null;
 
@@ -212,6 +212,14 @@ function secondLargest(arr) {
     return secondLargest;
 }
 
+// -- Nth-to-Last -- //
+// Return the element that is N-from-array's-end.
+// Given ([5, 2, 3, 6, 4, 9, 7]), return 4. If the array is too short, return null.
+function nthToLast(arr, num) {
+    if (arr.length < num) return null;
+    return arr[arr.length - num];
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
@@ -230,5 +238,6 @@ console.log(array);
 // console.log(arrConcat(array, array2));
 // removeNegatives(array);
 // console.log(secondToLast(array));
-console.log(secondLargest(array));
+// console.log(secondLargest(array));
+console.log(nthToLast(array, 6));
 console.log(array);
