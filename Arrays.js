@@ -220,6 +220,42 @@ function nthToLast(arr, num) {
     return arr[arr.length - num];
 }
 
+// -- Nth-Largest -- //
+// Given arr and N, return the Nth-largest element, where (N-1) elements are larger.
+// Return null if needed.
+function nthLargest(arr, n) {
+    let newArr = [...arr];
+    if (n === 0 || n > newArr.length) return null;
+
+    for (let i = 0; i < newArr.length; i++) {
+        while (newArr[i] > newArr[i + 1]) {
+            let next = i + 1;
+            let cur = i;
+            let prev = i - 1;
+
+            while (newArr[cur] > newArr[next]) {
+                let temp = newArr[next];
+                newArr[next] = newArr[cur];
+                newArr[cur] = temp;
+                cur++;
+                next++;
+            }
+
+            cur = i;
+
+            while (newArr[cur] < newArr[prev]) {
+                let temp = newArr[prev];
+                newArr[prev] = newArr[cur];
+                newArr[cur] = temp;
+                cur--;
+                prev--;
+            }
+        }
+    }
+
+    return newArr[arr.length - n];
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
@@ -239,5 +275,6 @@ console.log(array);
 // removeNegatives(array);
 // console.log(secondToLast(array));
 // console.log(secondLargest(array));
-console.log(nthToLast(array, 6));
+// console.log(nthToLast(array, 6));
+console.log(nthLargest(array, 4));
 console.log(array);
