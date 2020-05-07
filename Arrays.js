@@ -268,6 +268,23 @@ function shuffle(arr) {
     return arr;
 }
 
+// -- Remove Range -- //
+// Given array, and indices start and end, remove vals in that index range, working in-place (hence shortening the array).
+// Given ([20, 30, 40, 50, 60 , 70], 2, 4) change to [20, 30, 70] and return it.
+function removeRange(arr, start, end) {
+    if (start > end) return null;
+    if (start < 0) start = 0;
+    if (end >= arr.length - 1) {
+        arr.length = start;
+        return arr;
+    }
+    for (let i = 0; i + end < arr.length; i++) {
+        arr[start + i] = arr[end + i + 1];
+    }
+    arr.length -= end - start + 1;
+    return arr;
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
@@ -289,5 +306,6 @@ console.log(array);
 // console.log(secondLargest(array));
 // console.log(nthToLast(array, 6));
 // console.log(nthLargest(array, 4));
-shuffle(array);
+// shuffle(array);
+removeRange(array, 2, 5);
 console.log(array);
