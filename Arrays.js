@@ -256,6 +256,18 @@ function nthLargest(arr, n) {
     return newArr[arr.length - n];
 }
 
+// -- Shuffle -- //
+// Create shuffle(arr) to efficiently shuffle a given array's values. Work in-place, naturally.
+function shuffle(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const randIdx = Math.floor(Math.random() * 6);
+        const temp = arr[randIdx];
+        arr[randIdx] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+
 const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
@@ -276,5 +288,6 @@ console.log(array);
 // console.log(secondToLast(array));
 // console.log(secondLargest(array));
 // console.log(nthToLast(array, 6));
-console.log(nthLargest(array, 4));
+// console.log(nthLargest(array, 4));
+shuffle(array);
 console.log(array);
