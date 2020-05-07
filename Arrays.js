@@ -285,7 +285,49 @@ function removeRange(arr, start, end) {
     return arr;
 }
 
-const array = [3, 27, -15, 13, 13, 8, 8, 5];
+// -- Intermediate Sums -- //
+// You will be given an array of numbers. After every tenth element, add an additional element containing
+// the sum of those ten values. If the array does not end aligned evenly with ten elements, add one last
+// sum that includes those last elements not yet been included in one of the earlier sums. Given the array
+// [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2], change it to [1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 15, 1, 2, 1, 2, 6]
+function intermediateSums(arr) {
+    let idx = 0, sumIdx;
+
+    // Find where to insert the initial sum
+    if (arr.length < 10) {
+        sumIdx = arr.length;
+    }
+    else {
+        sumIdx = 10;
+    }
+
+    while (idx < arr.length) {
+        let sum = 0;
+
+        // Get sum of next 10 (or less if at end of array)
+        for (let i = 0; i + idx < sumIdx; i++) {
+            sum += arr[idx + i];
+        }
+
+        // Shift elements 1 to the right to create space for new sum
+        for (let i = arr.length; i > sumIdx; i--) {
+            arr[i] = arr[i - 1];
+        }
+
+        arr[sumIdx] = sum;  // Insert sum
+        idx = sumIdx + 1;   // Index of next set of numbers to add
+
+        // Get the index for where to insert the next set's sum
+        if (arr.length - sumIdx < 10) {
+            sumIdx += arr.length - sumIdx;
+        }
+        else {
+            sumIdx += 11;
+        }
+    }
+}
+
+const array = [3, 27, -15, 13, 13, 8, 8, 5, -6, 14, 8, 0, 11, 13];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
 
@@ -307,5 +349,6 @@ console.log(array);
 // console.log(nthToLast(array, 6));
 // console.log(nthLargest(array, 4));
 // shuffle(array);
-removeRange(array, 2, 5);
+// removeRange(array, 2, 5);
+intermediateSums(array);
 console.log(array);
