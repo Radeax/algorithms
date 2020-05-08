@@ -327,7 +327,20 @@ function intermediateSums(arr) {
     }
 }
 
-const array = [3, 27, -15, 13, 13, 8, 8, 5, -6, 14, 8, 0, 11, 13];
+// -- Double Trouble -- //
+// Create a funciton that changes a given array to list each original element twice, retaining original order.
+// Convert [4, "Ulysses", 42, false] to [4, 4, "Ulysses", "Ulysses", 42, 42, false, false].
+function double(arr) {
+    for (let i = 0; i < arr.length; i += 2) {
+        for (let x = arr.length; x > i; x--) {
+            arr[x] = arr[x - 1];
+        }
+        arr[i + 1] = arr[i];
+    }
+    return arr;
+}
+
+const array = [3, 27, -15, 13, 13, 8, 8, 5];
 const array2 = ['Aaa', 'bBb', 'ccC'];
 let val = 10;
 
@@ -350,5 +363,6 @@ console.log(array);
 // console.log(nthLargest(array, 4));
 // shuffle(array);
 // removeRange(array, 2, 5);
-intermediateSums(array);
+// intermediateSums(array);
+double(array);
 console.log(array);
