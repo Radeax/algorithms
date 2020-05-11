@@ -34,3 +34,14 @@ function getAcronym(str) {
 
 getAcronym(" there's no free lunch - gotta pay yer way. ");
 getAcronym("Live from New York, it's Saturday Night!");
+
+// -- Count Non-Spaces -- //
+// Accept a string and return the number of non-space characters found in the string.
+// For example, given "Honey pie, you are driving me crazy", return 29 (not 35).
+function countNonSpaces(str) {
+    let words = str.split(' ');
+    return words.reduce((sum, word) => sum + word.length, 0);
+}
+
+countNonSpaces('Honey pie, you are driving me crazy');
+
