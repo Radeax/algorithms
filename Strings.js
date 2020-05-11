@@ -21,3 +21,16 @@ function getDigits(str) {
 }
 
 console.log(getDigits("0s1a3y5w7h9a2t4?6!8?0"));
+
+// -- Acronyms -- //
+// Create a function that, given a string, returns the string's acronym (first letters only, capitalized)
+// Given " there's no free lucnh - gotta pay yer way. ", return "TNFL-GPYW".
+// Given "Live from New York, it's Saturday Night!", return "LFNYISN".
+function getAcronym(str) {
+    let phrase = str.split(" ");
+    let acronym = phrase.map(word => word[0]);
+    return acronym.join('').toUpperCase();
+}
+
+getAcronym(" there's no free lunch - gotta pay yer way. ");
+getAcronym("Live from New York, it's Saturday Night!");
