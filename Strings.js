@@ -45,3 +45,13 @@ function countNonSpaces(str) {
 
 countNonSpaces('Honey pie, you are driving me crazy');
 
+// -- Remove Shorter Strings -- //
+// Given a string array and value (length), remove any strings shorter than length from the array.
+function removeShorterStrings(strArr, length) {
+    return strArr.reduce((newArr, ele) => {
+        if (ele.length < length) newArr.push(ele);
+        return newArr;
+    }, []);
+}
+
+removeShorterStrings(['hello', 'world', 'shorter', 'strings'], 6);
