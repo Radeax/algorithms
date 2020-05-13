@@ -68,3 +68,14 @@ function reverseString(str) {
 }
 
 reverseString('creature');
+
+// -- Remove Even-Length Strings -- //
+// Build a standalone function to remove strings of even lengths from a given array.
+function removeEvenLengthStrings(arr) {
+    console.log(arr.reduce((odds, str) => {
+        if (str.length % 2 !== 0) odds.push(str);
+        return odds;
+    }, []));
+}
+
+removeEvenLengthStrings(['Is', 'this', 'sentence', 'odd', 'or', 'even', '?']);
