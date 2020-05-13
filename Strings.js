@@ -55,3 +55,16 @@ function removeShorterStrings(strArr, length) {
 }
 
 removeShorterStrings(['hello', 'world', 'shorter', 'strings'], 6);
+
+// -- String: Reverse -- //
+// Implement reverseString(str) that, given string, returns that string with characters reversed.
+// Given "creature", return "erutaerc". Tempting as it seems, do not use the built-in reverse()!
+function reverseString(str) {
+    let reversed = [];
+    for (let i = str.length; i >= 0; i--) {
+        reversed.push(str[i]);
+    }
+    return reversed.join('');
+}
+
+reverseString('creature');
