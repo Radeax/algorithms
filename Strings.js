@@ -79,3 +79,23 @@ function removeEvenLengthStrings(arr) {
 }
 
 removeEvenLengthStrings(['Is', 'this', 'sentence', 'odd', 'or', 'even', '?']);
+
+// -- Integer to Roman Numerals -- //
+// Given a positive integer that is less than 4000, return a string containing that value in Roman numeral
+// representation. In this representation, I, is 1, V is 5, X is 10, L = 50, C = 100, D = 500, and M = 1000.
+function convertToRoman(n) {
+    if (n >= 4000) return 'Enter only positive integers less than 4000';
+    let intValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+    let romanValue = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+    let romanNum = [];
+
+    for (let i = 0; i < intValue.length; i++) {
+        while (n >= intValue[i]) {
+            romanNum.push(romanValue[i]);
+            n -= intValue[i];
+        }
+    }
+    return romanNum.join('');
+}
+
+convertToRoman(955);
