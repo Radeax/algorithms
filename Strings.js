@@ -99,3 +99,58 @@ function convertToRoman(n) {
 }
 
 convertToRoman(955);
+
+// -- Roman Numerals to Integer -- //
+// Given a string containing a Roman numeral representation of a positive integer, return the integer.
+function romanToInteger(r) {
+    let num = 0;
+    let str = r.split('');
+    for (let i = 0; i < str.length; i++) {
+        switch (str[i]) {
+            case 'M' || 'm':
+                num += 1000;
+                break;
+            case 'D' || 'd':
+                num += 500;
+                break;
+            case 'C' || 'c':
+                if (str[i + 1] === 'M' || str[i + 1] === 'm') {
+                    num += 900;
+                    i++;
+                }
+                else if (str[i + 1] === 'D' || str[i + 1] === 'd') {
+                    num += 500;
+                    i++;
+                }
+                num += 100;
+                break;
+            case 'L' || 'l':
+                num += 50;
+                break;
+            case 'X' || 'x':
+                if (str[i + 1] === 'C' || str[i + 1] === 'c') {
+                    num += 90;
+                    i++;
+                }
+                else if (str[i + 1] === 'L' || str[i + 1] === 'l') {
+                    num += 40;
+                    i++;
+                }
+                num += 10;
+                break;
+            case 'V' || 'v':
+                num += 5;
+                break;
+            default:
+                if (str[i + 1] === 'V' || str[i + 1] === 'v') {
+                    num += 4;
+                    i++;
+                }
+                else {
+                    num += 1;
+                }
+        }
+    }
+    return num;
+}
+romanToInteger('MMCXVIV');
