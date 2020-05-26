@@ -173,3 +173,31 @@ function parensValid(str) {
 parensValid("Y(3(p)p(3)r)s");   // true
 parensValid("N(0(p)3");         // false
 parensValid("N(0)t )0(k");      // false
+
+// -- Braces Valid -- //
+// Given a sequence of parentheses, braces and brackets, determine whether it is valid. Example:
+// "W(a{t}s[o(n{ c}o)m]e )h[e{r}re]!" => true. "D(i{a}l[ t]o)n{e" => false. "A(l)s(o(n]0{t) 0}k" => false.
+function bracesValid(str) {
+    const braces = [];
+    for (let i = 0; i < str.length; i++) {
+        switch (str[i]) {
+            case "(":
+                braces.push(")");
+                break;
+            case "[":
+                braces.push("]");
+                break;
+            case "{":
+                braces.push("}");
+                break;
+        }
+        if (str[i] === ")" || str[i] === "]" || str[i] === "}") {
+            if (str[i] !== braces.pop()) return false;
+        }
+    }
+    return braces.length === 0 ? true : false;
+}
+
+bracesValid("W(a{t}s[o(n{ c}o)m]e )h[e{r}re]!");
+bracesValid("D(i{a}l[ t]o)n{e");
+bracesValid("A(l)s(o(n]0{t) 0}k");
